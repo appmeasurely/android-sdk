@@ -1,7 +1,18 @@
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:7.4.2'
+    }
+}
+
 plugins {
-    id 'com.android.library'
     id 'maven-publish'
 }
+
+apply plugin: 'com.android.library'
 
 android {
     namespace 'com.appmeasurely.sdk'
@@ -37,7 +48,7 @@ afterEvaluate {
         publications {
             release(MavenPublication) {
                 from components.release
-                groupId = 'com.appmeasurely'
+                groupId = 'com.github.appmeasurely'
                 artifactId = 'android-sdk'
                 version = '1.0.0'
             }
