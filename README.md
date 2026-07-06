@@ -1,3 +1,5 @@
+[![](https://jitpack.io/v/appmeasurely/android-sdk.svg)](https://jitpack.io/#appmeasurely/android-sdk)
+
 # AppMeasurely Android SDK
 
 Mobile attribution and analytics tracking for Android apps.
