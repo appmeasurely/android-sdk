@@ -30,6 +30,7 @@ public class AMTracker {
     private final ExecutorService executor;
     private final ScheduledExecutorService scheduler;
     private final Map<String, Object> userProperties;
+    private String customerUserId = null;
 
     public AMTracker(Context context, AMConfig config) {
         this.config = config;
@@ -146,6 +147,10 @@ public class AMTracker {
         userProperties.put(key, value);
     }
 
+    public void setCustomUserId(String userId) {
+        this.customerUserId = userId;
+    }
+
     private JSONObject buildBasePayload(String eventName) {
         JSONObject payload = new JSONObject();
         try {
@@ -164,6 +169,7 @@ public class AMTracker {
 
             String carrier = deviceInfo.getCarrier();
             if (carrier != null) payload.put("carrier", carrier);
+            if (customerUserId != null) payload.put("customer_user_id", customerUserId);
 
             int[] screen = deviceInfo.getScreenSize();
             if (screen[0] > 0) {

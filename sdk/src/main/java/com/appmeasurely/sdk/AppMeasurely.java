@@ -103,6 +103,16 @@ public class AppMeasurely {
         instance.tracker.setUserProperty(key, value);
     }
 
+
+    /**
+     * Set customer user ID — links events across devices
+     * Call this after user logs in with your internal user ID
+     */
+    public static void setCustomUserId(String userId) {
+        if (instance == null || !instance.initialized) return;
+        instance.tracker.setCustomUserId(userId);
+    }
+
     /**
      * Stop tracking (e.g. when user opts out)
      */
